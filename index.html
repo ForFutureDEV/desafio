@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <title>Somatório de Números Divisíveis por 3 ou 5</title>
+</head>
+<body>
+  <h1>Calculadora de Somatório</h1>
+  <label for="numberInput">Insira um número inteiro positivo:</label>
+  <input type="number" id="numberInput" min="1">
+  <button onclick="CalculateSum()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+      function CalculateSum() {
+          const inputNumber = document.getElementById('numberInput').value;
+          const number = parseInt(inputNumber);
+
+          if (number <= 0 || isNaN(number)) {
+              document.getElementById('resultado').innerText = 'Por favor, insira um número inteiro positivo válido.';
+              return;
+            }
+
+            const sum = CalculateSumDiv3and5(number);
+            document.getElementById('resultado').innerText = `O somatório é: ${sum}`;
+        }
+
+        function CalculateSumDiv3and5(num) {
+            let sum = 0;
+            for (let i = 1; i < num; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+    </script>
+</body>
+</html>
